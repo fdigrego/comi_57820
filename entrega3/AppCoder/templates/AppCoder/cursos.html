@@ -43,7 +43,18 @@
                 <div class="subheading mb-5">
                     En esta sección veremos información sobre los cursos
                 </div>
-                <p class="lead mb-5">Aqui vienen los forms de cursos!!!</p>
+                <div>
+                    <p class="lead mb-5">Aqui vienen los forms de cursos!!!</p>
+                    {% if miFormulario.errors %}
+                    <p style="color: red">Estan mal los datos, revisar</p>
+                    {% endif %}
+                    <form action="" method="POST">{% csrf_token %}
+                        <table>
+                            {{ miFormulario.as_table }}
+                        </table>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
             </div>
         </section>
     </div>
